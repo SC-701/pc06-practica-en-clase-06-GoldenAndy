@@ -1,0 +1,17 @@
+﻿CREATE PROCEDURE EliminarVehiculo
+    @Id UNIQUEIDENTIFIER
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    BEGIN TRANSACTION
+
+        DELETE
+        FROM Vehiculo
+        WHERE Id = @Id;
+
+        SELECT @Id;
+
+    COMMIT TRANSACTION
+END
+--Prueba
